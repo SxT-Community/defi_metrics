@@ -1,5 +1,6 @@
 /* Lido - Fee Amount by Day, for 2 Weeks 
    Runtime: 30sec
+   TODO: see if better performance using the SCI: Agent_EVT_VaultTransfer (or VaultDeposit)
 */
 SELECT
   cast(Time_stamp as date) as Fee_Date
