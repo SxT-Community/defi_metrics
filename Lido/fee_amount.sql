@@ -22,10 +22,11 @@ FROM (
     FROM ethereum.FUNGIBLETOKEN_WALLETS
     WHERE time_stamp between current_date-7 and current_date
     AND (
-           (Token_address) = LOWER('0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84') 
-        OR (Token_address) = LOWER('0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0')
+           (Token_address) = LOWER('0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84') /* stETH */
+        OR (Token_address) = LOWER('0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0') /* Matic */
     ) 
-    AND (Wallet_address) = LOWER('0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c')
+    /* 1 address: good canidate for SCI */ 
+    AND (Wallet_address) = LOWER('0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c') 
 ) AS daily_snapshots
 WHERE row_num = 1
 group by 1,2  order by 1,2
